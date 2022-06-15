@@ -140,7 +140,10 @@ class PermissionRequiredWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Please allow phone permission"),
+          const Text(
+            "To view your recent calls, you will need to allow phone permissions",
+            textAlign: TextAlign.center,
+          ),
           Lottie.asset(animationPath),
           const PermissionButton(),
           const SizedBox(height: 10),
