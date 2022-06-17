@@ -81,6 +81,10 @@ class CallLogCubit extends Cubit<CallLogCubitState> {
     app_launcher.openInSms(number: number);
   }
 
+  void callNumber(String number) {
+    app_launcher.callNumber(number: number);
+  }
+
   String _sanitizePhoneNumber(String number) {
     if (number.length < 2) return number;
     bool startsWithCode = number[0] == "+";

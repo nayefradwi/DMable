@@ -1,3 +1,4 @@
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 void openInWhatsapp({
@@ -32,4 +33,10 @@ void openInSms({
       mode: LaunchMode.externalApplication,
     );
   }
+}
+
+void callNumber({
+  required String number,
+}) async {
+  await FlutterPhoneDirectCaller.callNumber(number);
 }

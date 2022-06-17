@@ -86,6 +86,8 @@ class _DialPadScreenState extends State<DialPadScreen> {
       _cubit.openInTelegram(_controller.text);
     } else if (option == DmOptionsRow.sms) {
       _cubit.openInSms(_controller.text);
+    } else if (option == DmOptionsRow.call) {
+      _cubit.callNumber(_controller.text);
     }
   }
 
@@ -179,10 +181,10 @@ class DialpadButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(50),
       ),
       child: InkWell(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(50),
         onTap: onTap,
         onLongPress: onLongPress,
         child: Center(child: child),
@@ -195,6 +197,7 @@ class DmOptionsRow extends StatelessWidget {
   static const int whatsapp = 0;
   static const int telegram = 1;
   static const int sms = 2;
+  static const int call = 3;
   const DmOptionsRow({
     Key? key,
     this.onOptionTapped,
@@ -230,6 +233,20 @@ class DmOptionsRow extends StatelessWidget {
           },
           child: const Icon(
             FontAwesomeIcons.whatsapp,
+            color: Colors.white,
+          ),
+        ),
+        FloatingActionButton(
+          heroTag: UniqueKey(),
+          backgroundColor: Colors.orange[300],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          onPressed: () {
+            onPressed(call);
+          },
+          child: const Icon(
+            CupertinoIcons.phone,
             color: Colors.white,
           ),
         ),

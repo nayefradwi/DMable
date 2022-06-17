@@ -4,6 +4,7 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:open_in_whatsapp/call_log_bloc.dart';
 import 'package:open_in_whatsapp/change_code_screen.dart';
@@ -227,8 +228,9 @@ class CallEntryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: callLogs.length,
+      itemCount: callLogs.length + 2,
       itemBuilder: (context, index) {
+        if (index >= callLogs.length) return const SizedBox(height: 35);
         CallLogEntry entry = callLogs[index];
         DateTime date = DateTime.fromMillisecondsSinceEpoch(entry.timestamp!);
         return CallEntryListTile(entry: entry, cubit: _cubit, date: date);
@@ -255,15 +257,28 @@ class CallEntryListTile extends StatelessWidget {
     String formatedDate =
         formatDate(date, [dd, "/", m, "/", yyyy, " ", HH, ":", mm]);
     return ListTile(
-      onTap: () {
-        if (entry.number == null) return;
-        _cubit.openInWhatsapp(entry.number!);
-      },
       leading: Icon(getCorrectIcon(entry.callType)),
       title: Text(
         entry.name ?? entry.formattedNumber ?? "Unknown Number",
       ),
       subtitle: Text("Date: $formatedDate"),
+      trailing: Row(mainAxisSize: MainAxisSize.min, children: [
+        GestureDetector(
+          onTap: () {
+            if (entry.number == null) return;
+            _cubit.openInWhatsapp(entry.number!);
+          },
+          child: const Icon(FontAwesomeIcons.whatsapp),
+        ),
+        const SizedBox(width: 15),
+        GestureDetector(
+          onTap: () {
+            if (entry.number == null) return;
+            _cubit.callNumber(entry.number!);
+          },
+          child: const Icon(CupertinoIcons.phone_fill),
+        ),
+      ]),
     );
   }
 
