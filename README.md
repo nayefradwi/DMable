@@ -1,6 +1,6 @@
 # DMable
 
-![app demostration banner](</assets/screenshots/Google Pixel 4 XL Screenshot 1.png>)
+![app demostration banner](/assets/screenshots/Google%20Pixel%204%20XL%20Screenshot%200.png){:height="10px" width="10px"}
 
 ## What does it do?
 
