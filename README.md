@@ -1,16 +1,9 @@
-# open_in_whatsapp
+# DMable
 
-A new Flutter project.
+![app demostration banner](./assets/screenshots/Google%20Pixel%204%20XL%20Presentation%20(1).png)
 
-## Getting Started
+## What does it do?
 
-This project is a starting point for a Flutter application.
+DMable is an app made to solve the issue lazy people have when they want to send a dm to an unknown number. If you are also super lazy you can use this app to send location to your food delivery driver, send documents to HR, send memes to randos, get reported as a scammer, get banned for life, become sad.... I am trailing off the point here. Its a good app trust me.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation Guide
